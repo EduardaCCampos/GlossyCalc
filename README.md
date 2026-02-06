@@ -28,11 +28,11 @@ Para este projeto, aplicamos conceitos fundamentais de Ciência da Computação:
 
 Conheça as engenheiras por trás do código:
 
-* **Eduarda Campos** - [@EduardaCCampos]
+* **Eduarda Campos** - [@EduardaCCampos](@EduardaCCampos)
     * *Responsável pela lógica financeira e perfil da usuária.*
-* **Sarah Godinho** - [@sarocaa]
+* **Sarah Godinho** - [@sarocaa](@Sarocaa)
     * *Responsável pela arquitetura de dados e alocação dinâmica.*
-* **Clara Bertão** - [@clarabertao]
+* **Clara Bertão** - [@clarabertao](@clarabertao)
     * *Responsável pela interface do terminal e gestão de memória.*
 
 ---
@@ -52,18 +52,15 @@ O algoritmo cruza três variáveis principais:
    git clone [[https://github.com/EduardaCCampos/GlossyCalc.git](https://github.com/EduardaCCampos/GlossyCalc.git)]
 
 2. Compile o código:
+   ```bash
    gcc main.c -o GlossyCalc
 
 3. Execute e comece a investir:
+   ```bash
    ./GlossyCalc
 
 ---
 
 Projeto acadêmico - Ciência da Computação - 2026
 
-   
-   
 
-1. Clone o repositório:
-   ```bash
-   git clone [https://github.com/seu-usuario/GlossyCalc.git](https://github.com/seu-usuario/GlossyCalc.git)
