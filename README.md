@@ -5,7 +5,7 @@
 O **GlossyCalc** é um projeto desenvolvido para a disciplina de **Algoritmos e Estruturas de Dados I**. Ele utiliza a lógica de *Girl Math* para transformar o consumo impulsivo em decisões financeiras baseadas em engenharia. Através de cálculos de CPW (Cost-per-wear) e análise de orçamento mensal, o software decide se aquele "mimo" é um investimento aprovado ou um erro de sistema.
 
 **Funcionalidade:** "Custom Luxury Margin" (Margem de Luxo)
-Diferente de calculadoras financeiras rígidas, o LuxeLogic introduz o Parâmetro de Liberdade Financeira.
+Diferente de calculadoras financeiras rígidas, o GlossyCalc introduz o Parâmetro de Liberdade Financeira.
 
 O que é: Uma funcionalidade onde o sistema solicita a renda mensal e a porcentagem de "mimos" (gasto discricionário) que a usuária se permite ter.
 
@@ -66,4 +66,4 @@ Projeto acadêmico - Ciência da Computação - 2026
 
 1. Clone o repositório:
    ```bash
-   git clone [https://github.com/seu-usuario/luxelogic.git](https://github.com/seu-usuario/luxelogic.git)
+   git clone [https://github.com/seu-usuario/GlossyCalc.git](https://github.com/seu-usuario/GlossyCalc.git)
