@@ -28,11 +28,11 @@ Para este projeto, aplicamos conceitos fundamentais de Ciência da Computação:
 
 Conheça as engenheiras por trás do código:
 
-* **Eduarda Campos** - [@EduardaCCampos](@EduardaCCampos)
+* **Eduarda Campos** - [@EduardaCCampos]([EduardaCCampos](https://github.com/EduardaCCampos)
     * *Responsável pela lógica financeira e perfil da usuária.*
-* **Sarah Godinho** - [@sarocaa](@Sarocaa)
+* **Sarah Godinho** - [@sarocaa](https://github.com/sarocaa)
     * *Responsável pela arquitetura de dados e alocação dinâmica.*
-* **Clara Bertão** - [@clarabertao](@clarabertao)
+* **Clara Bertão** - [@clarabertao](https://github.com/clarabertao)
     * *Responsável pela interface do terminal e gestão de memória.*
 
 ---
