@@ -1,5 +1,5 @@
-# GlossyCalc
-# ✨ LuxeLogic: The Cost-per-Wear Engine ✨
+
+# ✨ GlossyCalc: The Cost-per-Wear Engine ✨
 
 
 O **GlossyCalc** é um projeto desenvolvido para a disciplina de **Algoritmos e Estruturas de Dados I**. Ele utiliza a lógica de *Girl Math* para transformar o consumo impulsivo em decisões financeiras baseadas em engenharia. Através de cálculos de CPW (Cost-per-wear) e análise de orçamento mensal, o software decide se aquele "mimo" é um investimento aprovado ou um erro de sistema.
