@@ -45,6 +45,15 @@ void CalcularCPW(Produto * p){
     p->cpw=cpw;
 }
 
+int economia(double valor, double economias, int tempo){
+    if(valor<=0){
+        return tempo;
+    }
+    else{
+        return(economia(valor-economias, economias, ++tempo));
+    }
+}
+
 void parcelamento(Perfil p, Produto * prod){
     double limite =p.salario *(p.margem/100.00);
     int parcelas;
@@ -63,7 +72,7 @@ void parcelamento(Perfil p, Produto * prod){
         int mesesEconomia=0;
         printf("SUA ANÁLISE FOI CONCLUÍDA!\n Esse valor ultrapassa seu limite, Temos duas opções para você: \n (1) Sugerimos parcelar em %d de %.2lf \n", parcelas,valorParcelas);
 
-        mesesEconomia=(prod->preco, limite, 0);
+        mesesEconomia=economia(prod->preco, limite, 0);
         printf("(2) Sugerimos guardar seu limite de %.2lf todo mês durante %d meses e comprar A VISTA!\n", limite, mesesEconomia);
 
         if(parcelas<=prod->durabilidade){
@@ -74,11 +83,3 @@ void parcelamento(Perfil p, Produto * prod){
     }
 }
 
-int economia(double valor, double economias, int tempo){
-    if(valor<=0){
-        return tempo;
-    }
-    else{
-        return(economia(valor-economias, economias, tempo++));
-    }
-}

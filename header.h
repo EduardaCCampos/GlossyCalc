@@ -23,8 +23,10 @@ int validarmargem(float perc);
 
 void CalcularCPW(Produto * p);
 
+int economia(double valor, double economia, int meses);
+
+
 void parcelamento(Perfil p, Produto * prod);
 
-int economia(double valor, double economia, int meses);
 
 #endif
