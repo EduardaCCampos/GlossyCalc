@@ -44,3 +44,41 @@ void CalcularCPW(Produto * p){
     cpw= p->preco/p->durabilidade;
     p->cpw=cpw;
 }
+
+void parcelamento(Perfil p, Produto * prod){
+    double limite =p.salario *(p.margem/100.00);
+    int parcelas;
+    double valorParcelas;
+
+    printf("\n-------ANÁLISE DE CRÉDITO-------\n");
+    printf("PRODUTO: %s | PREÇO: %.2lf\n", prod->nome,prod->preco);
+    printf("SUA VERBA PARA MIMOS: %.2lf\n", limite);
+
+    if(prod->preco<limite){
+        printf("COMPRA APROVADÍSSIMA!! ARRASOU GAROTA, NEM AFETOU SEU LIMITE DE %.2lf\n", limite);
+    }
+    else{
+        parcelas=(prod->preco/limite)+1;
+        valorParcelas=prod->preco/parcelas;
+        int mesesEconomia=0;
+        printf("SUA ANÁLISE FOI CONCLUÍDA!\n Esse valor ultrapassa seu limite, Temos duas opções para você: \n (1) Sugerimos parcelar em %d de %.2lf \n", parcelas,valorParcelas);
+
+        mesesEconomia=(prod->preco, limite, 0);
+        printf("(2) Sugerimos guardar seu limite de %.2lf todo mês durante %d meses e comprar A VISTA!\n", limite, mesesEconomia);
+
+        if(parcelas<=prod->durabilidade){
+            printf("E um bônus? Você termina de pagar enquanto ainda usa o produto\n");
+        }else{
+            ("Compra arriscada!!!! O pagamento dura %d meses mas o produto só dura %d meses.\n REPENSE!\n", parcelas, prod->durabilidade);
+        }
+    }
+}
+
+int economia(double valor, double economias, int tempo){
+    if(valor<=0){
+        return tempo;
+    }
+    else{
+        return(economia(valor-economias, economias, tempo++));
+    }
+}
