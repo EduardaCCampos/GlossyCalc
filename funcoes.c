@@ -1,6 +1,27 @@
 #include<stdio.h>
+#include <locale.h>
 #include<stdlib.h>
 #include "header.h"
+
+void exibirMenu() {
+    printf("\n");
+    printf(" ██████╗ ██╗      ██████╗ ███████╗███████╗██╗   ██╗\n");
+    printf("██╔════╝ ██║     ██╔═══██╗██╔════╝██╔════╝╚██╗ ██╔╝\n");
+    printf("██║  ███╗██║     ██║   ██║███████╗███████╗ ╚████╔╝ \n");
+    printf("██║   ██║██║     ██║   ██║╚════██║╚════██║  ╚██╔╝  \n");
+    printf("╚██████╔╝███████╗╚██████╔╝███████║███████║   ██║   \n");
+    printf(" ╚═════╝ ╚══════╝ ╚═════╝ ╚══════╝╚══════╝   ╚═╝   \n\n");
+    
+    printf("           [ M E N U   P R I N C I P A L ]\n");
+    printf(" ───────────────────────────────────────────────────\n");
+    printf("  ║  1 ➔ CADASTRAR PERFIL                         ║\n");
+    printf("  ║  2 ➔ CADASTRAR PRODUTO                        ║\n");
+    printf("  ║  3 ➔ ANALISAR COMPRA                          ║\n");
+    printf("  ║  0 ➔ SAIR                                     ║\n");
+    printf(" ───────────────────────────────────────────────────\n");
+    printf("  >> SELECIONE O COMANDO: ");
+}
+
 
 
 void ConfPerfil(Perfil *p){
@@ -16,6 +37,17 @@ void ConfPerfil(Perfil *p){
     }while (validarmargem(p->margem)==0);
 
     printf("\n Perfil de %s configurado com sucesso!\n", p->nome);
+}
+void le_produto(Produto *prod){
+    printf("DIGITE O NOME DO PRODUTO: ");
+    scanf("%[^\n]",prod->nome); 
+    printf("\nDIGITE O PRECO: ");
+    scanf("%lf", &prod->preco);
+    printf("\nQUANTO TEMPO ESSE PRODUTO GERALMENTE DURA COM VOCE?"); //considerando que a durabilidade é em dias
+    scanf("%d", &prod->durabilidade);
+    CalcularCPW(prod); // corrigir no gemini
+    printf("\nPRODUTO CADASTRADO COM SUCESSO, AMIGA!\n");
+    
 }
 
 int validarmargem(float perc){
@@ -45,7 +77,7 @@ void CalcularCPW(Produto * p){
     p->cpw=cpw;
 }
 
-int economia(double valor, double economias, int tempo){
+int economia(double valor, double economias, int tempo){ //DUDA EXPLICA PA NOIS
     if(valor<=0){
         return tempo;
     }
@@ -82,4 +114,3 @@ void parcelamento(Perfil p, Produto * prod){
         }
     }
 }
-
