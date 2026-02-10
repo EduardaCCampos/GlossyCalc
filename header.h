@@ -17,6 +17,10 @@ typedef struct
     float margem;
 }Perfil;
 
+void menu();
+
+void le_produto(Produto *prod);
+
 void ConfPerfil(Perfil *p);
 
 int validarmargem(float perc);
