@@ -5,24 +5,26 @@
 void menu(){
   int op;
   Perfil p;
-  Produto prod
+  Produto prod;
+  
   do{
-   Perfil *p=(Perfil*)malloc(sizeof(Perfil));
-   Produto prod= (Produto*)malloc(sizeof(Produto));
+    
     exibirMenu();
     scanf("%d", &op)
     switch(op){
       case 1:
-        ConfPerfil(p);
+        alocarPerfil(*p);  
         validarmargem(p->margem);
         break;
+    
       case 2:
-        le_produto(prod);
+        alocarItem(*prod);
         break;
        
       case 3:
         parcelamento(p, prod);
         break;
+      
       case 4:
         mostrarLista(prod);
         break;
@@ -34,11 +36,9 @@ void menu(){
       default:
         if(op!=0) printf("COMANDO INVALIDO!\n");
         break;
-    
     }
   }while(op!=0);
+  
+  limparLista(*prod);
   free(p);
-  free(prod)
-
-
 }
