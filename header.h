@@ -15,6 +15,10 @@ typedef struct {
     float margem;
 } Perfil;
 
+Produto* excluir(Produto* lista, int valor);
+
+void mostrarLista(Produto* lista);
+
 void exibirMenu();
 
 void le_produto(Produto *prod);
