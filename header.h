@@ -21,26 +21,26 @@ void mostrarLista(Produto* lista);
 
 void exibirMenu();
 
-void le_produto(Produto *prod);
+void leProduto(Produto *prod);
 
 void ConfPerfil(Perfil *p);
 
 int validarmargem(float perc);
 
-void CalcularCPW(Produto * p);
+void CalcularCPW(Produto *p);
 
 int economia(double valor, double economia, int meses);
 
 void parcelamento(Perfil p, Produto * prod);
 
-void alocarPerfil (Perfil **p);
+void alocarPerfil(Perfil **p);
 
-void alocarItem (Produto **prod);
+void alocarItem(Produto **prod);
 
-int contarItens (Produto *prod);
+int contarItens(Produto *prod);
 
-void removerItem (Produto **prod);
+void removerItem(Produto **prod);
 
-void limparLista (Produto **prod);
+void limparLista(Produto **prod);
 
 #endif
