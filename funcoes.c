@@ -86,8 +86,10 @@ void ConfPerfil(Perfil *p){
 
     printf("\n Perfil de %s configurado com sucesso!\n", p->nome);
 }
-void le_produto(Produto *prod){
+
+void leProduto(Produto *prod){
     printf("DIGITE O NOME DO PRODUTO: ");
+    getchar();
     scanf("%[^\n]",prod->nome); 
     printf("\nDIGITE O PRECO: ");
     scanf("%lf", &prod->preco);
@@ -95,7 +97,6 @@ void le_produto(Produto *prod){
     scanf("%d", &prod->durabilidade);
     CalcularCPW(prod); // corrigir no gemini
     printf("\nPRODUTO CADASTRADO COM SUCESSO, AMIGA!\n");
-    
 }
 
 int validarmargem(float perc){
@@ -115,7 +116,6 @@ int validarmargem(float perc){
     else{
         printf("MARGEM APROVADA!\n");
     }
-
     return 1;
 }
 
