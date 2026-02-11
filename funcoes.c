@@ -24,11 +24,17 @@ void exibirMenu() {
     printf("  >> SELECIONE O COMANDO: ");
 }
 
-Produto* excluir(Produto* lista, int valor) {// VALOR É O INDICE DO PRODUTO A SER EXCLUIDO
+Produto* excluir(Produto* lista) {
     Produto *atual = lista;
     Produto *anterior = NULL;
+    int indice=1;
+    int valor;
 
-    while (atual != NULL && atual->valor != valor) {
+    mostrarLista(prod);
+
+    printf("QUAL O INDICE DO PRODUTO QUE DESEJA EXCLUIR?");
+    scanf("%d", &valor); 
+    while (atual != NULL && indice != valor) {
         anterior = atual;
         atual = atual->proximo;
     }
@@ -56,10 +62,12 @@ void mostrarLista(Produto* lista) {
         return;
     }
 
-    printf("ELEMENTOS DA LISTA:\n");
+    printf("PRODUTOS DA LISTA:\n");
     while (atual != NULL) {
-        printf("[%d] -> ", atual->valor);
+        int indice=1;
+        printf("[%d]: %s\tR$%.2lf\tDurabilidade: %d\n", indice, atual->nome, atual->preco, atual->durabilidade);
         atual = atual->proximo;
+        indice++;
     }
     printf("NULL\n");
 }
