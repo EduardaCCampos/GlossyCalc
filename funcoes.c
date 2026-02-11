@@ -162,3 +162,108 @@ void parcelamento(Perfil p, Produto * prod){
         }
     }
 }
+
+void alocarPerfil (Perfil **p) {
+    if(*p != NULL) {
+        printf("Um perfil já foi criado! Não foi possível criar outro!\n");
+        return;
+    }
+    
+    Perfil *novo = (Perfil*)malloc(sizeof(Perfil));
+    
+    if(novo==NULL){
+        // captura o erro de alocação de memória!
+        printf("Alocação falhou!\n");
+        return;
+    }
+    else{
+        getchar();
+        ConfPerfil(novo);
+        *p = novo;
+    }
+}
+
+void alocarItem (Produto **prod) {
+    Produto *novo = (Produto*)malloc(sizeof(Produto));
+    
+    if(novo==NULL){
+        // captura o erro de alocação de memória!
+        printf("Alocação falhou!\n");
+        return;
+    }
+    else{
+        getchar();
+        le_produto(novo); 
+        novo->prox = NULL;
+        
+        if (*prod == NULL) {
+        *prod = novo; 
+        }
+        else {
+            Produto *aux = *prod;
+            
+            while(aux->prox != NULL) aux = aux->prox;
+            aux->prox = novo;
+        }
+    }
+}
+
+int contarItens (Produto *prod) {
+    int i=0;
+    Produto *aux = prod;
+    while(aux!=NULL) {
+        i++;
+        aux = aux->prox;
+    }
+    return i;
+}
+
+void removerItem (Produto **prod) {
+    int i, tam, indice;
+    
+    mostrarLista(*prod);
+    printf("Insira a posição do item que você deseja remover das suas compras: ");
+    scanf("%d", &indice);
+    printf("\n");
+    
+    Produto *aux = *prod;
+    Produto *remover = NULL;
+    tam = contarItens(*prod);
+    
+    if (*prod == NULL) {
+        printf("Lista vazia!\n");
+        return;
+    }
+    
+    if (indice<1 || indice>tam) {
+        printf("ERRO: O indice %d nao existe! A lista tem %d itens.\n", indice, tam);
+        return;
+    }
+    
+    if (indice==1){
+        remover = *prod;
+        *prod = (*prod)->prox;
+    }
+    else {
+        for(i=1; aux!=NULL && i<indice-1; i++){
+            aux = aux->prox;
+        }
+        remover = aux->prox;
+        aux->prox = remover->prox;
+    }
+    free(remover);
+    printf("Item removido da lista!\n");
+}
+
+void limparLista (Produto **prod) {
+    Produto *aux = *prod;
+    Produto *proxProd;
+
+    while (aux != NULL) {
+        proxProd = aux->prox; 
+        free(aux);
+        aux = proxProd;
+    }
+    
+    *prod = NULL;
+}
