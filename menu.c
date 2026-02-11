@@ -23,6 +23,13 @@ void menu(){
       case 3:
         parcelamento(p, prod);
         break;
+      case 4:
+        mostrarLista(prod);
+        break;
+
+      case 5:
+        excluir(prod, indice); // PEGAR FUNÇÃO DE INDICE DA SARAH 
+        break;
 
       default:
         if(op!=0) printf("COMANDO INVALIDO!\n");
