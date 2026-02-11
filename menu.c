@@ -28,7 +28,7 @@ void menu(){
         break;
 
       case 5:
-        excluir(prod, indice); // PEGAR FUNÇÃO DE INDICE DA SARAH 
+        excluir(prod);  
         break;
 
       default:
