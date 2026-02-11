@@ -33,5 +33,14 @@ int economia(double valor, double economia, int meses);
 
 void parcelamento(Perfil p, Produto * prod);
 
+void alocarPerfil (Perfil **p);
+
+void alocarItem (Produto **prod);
+
+int contarItens (Produto *prod);
+
+void removerItem (Produto **prod);
+
+void limparLista (Produto **prod);
 
 #endif
