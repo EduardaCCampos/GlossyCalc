@@ -63,10 +63,10 @@ void mostrarLista(Produto* lista) {
     }
 
     printf("PRODUTOS DA LISTA:\n");
+    int indice=1;
     while (atual != NULL) {
-        int indice=1;
         printf("[%d]: %s\tR$%.2lf\tDurabilidade: %d\n", indice, atual->nome, atual->preco, atual->durabilidade);
-        atual = atual->proximo;
+        atual = atual->prox;
         indice++;
     }
     printf("NULL\n");
