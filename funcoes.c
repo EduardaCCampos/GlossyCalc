@@ -163,7 +163,7 @@ void parcelamento(Perfil p, Produto * prod){
     }
 }
 
-void alocarPerfil (Perfil **p) {
+void alocarPerfil(Perfil **p) {
     if(*p != NULL) {
         printf("Um perfil já foi criado! Não foi possível criar outro!\n");
         return;
@@ -183,7 +183,7 @@ void alocarPerfil (Perfil **p) {
     }
 }
 
-void alocarItem (Produto **prod) {
+void alocarItem(Produto **prod) {
     Produto *novo = (Produto*)malloc(sizeof(Produto));
     
     if(novo==NULL){
@@ -193,7 +193,7 @@ void alocarItem (Produto **prod) {
     }
     else{
         getchar();
-        le_produto(novo); 
+        leProduto(novo); 
         novo->prox = NULL;
         
         if (*prod == NULL) {
@@ -208,7 +208,7 @@ void alocarItem (Produto **prod) {
     }
 }
 
-int contarItens (Produto *prod) {
+int contarItens(Produto *prod) {
     int i=0;
     Produto *aux = prod;
     while(aux!=NULL) {
@@ -218,7 +218,7 @@ int contarItens (Produto *prod) {
     return i;
 }
 
-void removerItem (Produto **prod) {
+void removerItem(Produto **prod) {
     int i, tam, indice;
     
     mostrarLista(*prod);
@@ -255,7 +255,7 @@ void removerItem (Produto **prod) {
     printf("Item removido da lista!\n");
 }
 
-void limparLista (Produto **prod) {
+void limparLista(Produto **prod) {
     Produto *aux = *prod;
     Produto *proxProd;
 
