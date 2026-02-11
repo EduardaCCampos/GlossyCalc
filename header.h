@@ -6,16 +6,14 @@ typedef struct Produto{
     double preco;
     int durabilidade;
     double cpw;
-    struct Produto * prox;
-    
+    struct Produto * prox;   
 } Produto;
 
-typedef struct 
-{
+typedef struct {
     char nome [128];
     double salario;
     float margem;
-}Perfil;
+} Perfil;
 
 void exibirMenu();
 
@@ -28,7 +26,6 @@ int validarmargem(float perc);
 void CalcularCPW(Produto * p);
 
 int economia(double valor, double economia, int meses);
-
 
 void parcelamento(Perfil p, Produto * prod);
 
