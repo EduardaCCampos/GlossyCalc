@@ -17,6 +17,8 @@ void exibirMenu() {
     printf("  ║  1 ➔ CADASTRAR PERFIL                         ║\n");
     printf("  ║  2 ➔ CADASTRAR PRODUTO                        ║\n");
     printf("  ║  3 ➔ ANALISAR COMPRA                          ║\n");
+    printf("  ║  4 ➔ EXIBIR LISTA DE PRODUTOS                 ║\n");
+    printf("  ║  5 ➔ EXCLUIR PRODUTO                          ║\n");
     printf("  ║  0 ➔ SAIR                                     ║\n");
     printf(" ───────────────────────────────────────────────────\n");
     printf("  >> SELECIONE O COMANDO: ");
