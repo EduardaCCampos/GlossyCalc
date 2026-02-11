@@ -24,7 +24,45 @@ void exibirMenu() {
     printf("  >> SELECIONE O COMANDO: ");
 }
 
+Produto* excluir(Produto* lista, int valor) {// VALOR É O INDICE DO PRODUTO A SER EXCLUIDO
+    Produto *atual = lista;
+    Produto *anterior = NULL;
 
+    while (atual != NULL && atual->valor != valor) {
+        anterior = atual;
+        atual = atual->proximo;
+    }
+
+    if (atual == NULL) {
+        return lista;
+    }
+
+    if (anterior == NULL) {
+        lista = atual->proximo;
+    } else {
+        anterior->proximo = atual->proximo;
+    }
+
+    free(atual);
+
+    return lista;
+}
+
+void mostrarLista(Produto* lista) {
+    Produto *atual = lista;
+
+    if (atual == NULL) {
+        printf("A lista esta vazia.\n");
+        return;
+    }
+
+    printf("ELEMENTOS DA LISTA:\n");
+    while (atual != NULL) {
+        printf("[%d] -> ", atual->valor);
+        atual = atual->proximo;
+    }
+    printf("NULL\n");
+}
 
 void ConfPerfil(Perfil *p){
     printf("\nDIGITE SEU NOME: ");
