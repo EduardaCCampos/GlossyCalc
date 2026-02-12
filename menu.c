@@ -7,21 +7,32 @@ void menu(){
   Perfil *p=NULL;
   Produto *prod=NULL;
   
+  printf("\n");
+    printf(" ██████╗ ██╗      ██████╗ ███████╗███████╗██╗   ██╗\n");
+    printf("██╔════╝ ██║     ██╔═══██╗██╔════╝██╔════╝╚██╗ ██╔╝\n");
+    printf("██║  ███╗██║     ██║   ██║███████╗███████╗ ╚████╔╝ \n");
+    printf("██║   ██║██║     ██║   ██║╚════██║╚════██║  ╚██╔╝  \n");
+    printf("╚██████╔╝███████╗╚██████╔╝███████║███████║   ██║   \n");
+    printf(" ╚═════╝ ╚══════╝ ╚═════╝ ╚══════╝╚══════╝   ╚═╝   \n\n");
+    
+    printf("SEJA BEM VINDA!!!\nPRIMEIRO, VAMOS CONFIGURAR O SEU PERFIL!\n");
+    alocarPerfil(&p);
+  
   do{
     
     exibirMenu();
     scanf("%d", &op);
     switch(op){
       case 1:
-        alocarPerfil(&p);  
+        alocarItem(&prod);
         break;
     
       case 2:
-        alocarItem(&prod);
+        mostrarPerfil(p);
         break;
        
       case 3:
-        parcelamento(p, prod);
+        analisarCompra(p, prod);
         break;
       
       case 4:
@@ -36,6 +47,7 @@ void menu(){
         if(op!=0) printf("COMANDO INVALIDO!\n");
         break;
     }
+    
   }while(op!=0);
   
   limparLista(&prod);
