@@ -27,7 +27,7 @@ void leProduto(Produto *prod);
 
 void ConfPerfil(Perfil *p);
 
-int validarmargem(float perc);
+int validarMargem(float perc);
 
 void CalcularCPW(Produto *p);
 

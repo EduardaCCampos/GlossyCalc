@@ -4,8 +4,8 @@
 
 void menu(){
   int op;
-  Perfil *p;
-  Produto *prod;
+  Perfil *p=NULL;
+  Produto *prod=NULL;
   
   do{
     
@@ -14,7 +14,6 @@ void menu(){
     switch(op){
       case 1:
         alocarPerfil(&p);  
-        validarmargem(p->margem);
         break;
     
       case 2:

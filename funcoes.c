@@ -23,37 +23,7 @@ void exibirMenu() {
     printf(" ───────────────────────────────────────────────────\n");
     printf("  >> SELECIONE O COMANDO: ");
 }
-/*
-Produto* excluir(Produto * lista) {
-    Produto *atual = lista;
-    Produto *anterior = NULL;
-    int indice=1;
-    int valor;
 
-    mostrarLista(prod);
-
-    printf("QUAL O INDICE DO PRODUTO QUE DESEJA EXCLUIR?");
-    scanf("%d", &valor); 
-    while (atual != NULL && indice != valor) {
-        anterior = atual;
-        atual = atual->proximo;
-    }
-
-    if (atual == NULL) {
-        return lista;
-    }
-
-    if (anterior == NULL) {
-        lista = atual->proximo;
-    } else {
-        anterior->proximo = atual->proximo;
-    }
-
-    free(atual);
-
-    return lista;
-}
-*/
 void mostrarLista(Produto* lista) {
     Produto *atual = lista;
 
@@ -65,43 +35,43 @@ void mostrarLista(Produto* lista) {
     printf("PRODUTOS DA LISTA:\n");
     int indice=1;
     while (atual != NULL) {
-        printf("[%d]: %s\tR$%.2lf\tDurabilidade: %d\n", indice, atual->nome, atual->preco, atual->durabilidade);
+        printf("[%d]: %s\tR$%.2lf\tDurabilidade: %d meses\n", indice, atual->nome, atual->preco, atual->durabilidade);
         atual = atual->prox;
         indice++;
     }
-    printf("NULL\n");
+    printf("FIM DA LISTA!\n");
 }
 
 void ConfPerfil(Perfil *p){
-    printf("\nDIGITE SEU NOME: ");
+    printf("DIGITE SEU NOME: ");
     scanf(" %[^\n]",p->nome);
 
-    printf("\nDIGITE SEU SALÁRIO: ");
+    printf("DIGITE SEU SALÁRIO: ");
     scanf("%lf", &p->salario);
 
     do{
-        printf("\nQUANTOS % DO SEU SALÁRIO É DEDICADO A MIMOS?");
+        printf("QUANTOS %% DO SEU SALÁRIO É DEDICADO A MIMOS?");
         scanf("%f",&p->margem);
-    }while (validarmargem(p->margem)==0);
+    } while (validarMargem(p->margem)==0);
 
-    printf("\n Perfil de %s configurado com sucesso!\n", p->nome);
+    printf("\nPerfil de %s configurado com sucesso!\n", p->nome);
 }
 
 void leProduto(Produto *prod){
     printf("DIGITE O NOME DO PRODUTO: ");
-    getchar();
-    scanf("%[^\n]",prod->nome); 
-    printf("\nDIGITE O PRECO: ");
+    //getchar();
+    scanf(" %[^\n]",prod->nome); 
+    printf("DIGITE O PRECO: ");
     scanf("%lf", &prod->preco);
-    printf("\nQUANTO TEMPO ESSE PRODUTO GERALMENTE DURA COM VOCE?"); //considerando que a durabilidade é em dias
+    printf("QUANTOS MESES ESSE PRODUTO GERALMENTE DURA COM VOCE? "); //considerando que a durabilidade é em meses
     scanf("%d", &prod->durabilidade);
-    CalcularCPW(prod); // corrigir no gemini
-    printf("\nPRODUTO CADASTRADO COM SUCESSO, AMIGA!\n");
+    CalcularCPW(prod);
+    printf("PRODUTO CADASTRADO COM SUCESSO, AMIGA! \n");
 }
 
-int validarmargem(float perc){
+int validarMargem(float perc){
     if(perc<=0.0){
-        printf("QUE ISSO AMIGA! Você precisa de pelo menos 1% para brilhar! Tente novamente\n");
+        printf("QUE ISSO AMIGA! Você precisa de pelo menos 1%% para brilhar! Tente novamente\n");
         return 0;
     }
 
@@ -121,11 +91,12 @@ int validarmargem(float perc){
 
 void CalcularCPW(Produto * p){
     float cpw=0;
-    cpw= p->preco/p->durabilidade;
+    cpw = p->preco/p->durabilidade;
     p->cpw=cpw;
+
 }
 
-int economia(double valor, double economias, int tempo){ //DUDA EXPLICA PA NOIS
+int economia(double valor, double economias, int tempo){
     if(valor<=0){
         return tempo;
     }
