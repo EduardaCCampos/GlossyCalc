@@ -15,6 +15,8 @@ typedef struct {
     float margem;
 } Perfil;
 
+void menu();
+
 Produto* excluir(Produto* lista, int valor);
 
 void mostrarLista(Produto* lista);
@@ -31,7 +33,7 @@ void CalcularCPW(Produto *p);
 
 int economia(double valor, double economia, int meses);
 
-void parcelamento(Perfil p, Produto * prod);
+void parcelamento(Perfil *p, Produto * prod);
 
 void alocarPerfil(Perfil **p);
 

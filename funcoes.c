@@ -23,8 +23,8 @@ void exibirMenu() {
     printf(" ───────────────────────────────────────────────────\n");
     printf("  >> SELECIONE O COMANDO: ");
 }
-
-Produto* excluir(Produto* lista) {
+/*
+Produto* excluir(Produto * lista) {
     Produto *atual = lista;
     Produto *anterior = NULL;
     int indice=1;
@@ -53,7 +53,7 @@ Produto* excluir(Produto* lista) {
 
     return lista;
 }
-
+*/
 void mostrarLista(Produto* lista) {
     Produto *atual = lista;
 
@@ -134,8 +134,8 @@ int economia(double valor, double economias, int tempo){ //DUDA EXPLICA PA NOIS
     }
 }
 
-void parcelamento(Perfil p, Produto * prod){
-    double limite =p.salario *(p.margem/100.00);
+void parcelamento(Perfil * p, Produto * prod){
+    double limite =p->salario *(p->margem/100.00);
     int parcelas;
     double valorParcelas;
 

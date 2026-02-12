@@ -4,21 +4,21 @@
 
 void menu(){
   int op;
-  Perfil p;
-  Produto prod;
+  Perfil *p;
+  Produto *prod;
   
   do{
     
     exibirMenu();
-    scanf("%d", &op)
+    scanf("%d", &op);
     switch(op){
       case 1:
-        alocarPerfil(*p);  
+        alocarPerfil(&p);  
         validarmargem(p->margem);
         break;
     
       case 2:
-        alocarItem(*prod);
+        alocarItem(&prod);
         break;
        
       case 3:
@@ -30,7 +30,7 @@ void menu(){
         break;
 
       case 5:
-        excluir(prod);  
+        removerItem(&prod);  
         break;
 
       default:
@@ -39,6 +39,6 @@ void menu(){
     }
   }while(op!=0);
   
-  limparLista(*prod);
+  limparLista(&prod);
   free(p);
 }
