@@ -14,8 +14,8 @@ void exibirMenu() {
     
     printf("           [ M E N U   P R I N C I P A L ]\n");
     printf(" ───────────────────────────────────────────────────\n");
-    printf("  ║  1 ➔ CADASTRAR PERFIL                         ║\n");
-    printf("  ║  2 ➔ CADASTRAR PRODUTO                        ║\n");
+    printf("  ║  1 ➔ CADASTRAR PRODUTO                        ║\n");
+    printf("  ║  2 ➔ VIZUALIZAR PERFIL                        ║\n");
     printf("  ║  3 ➔ ANALISAR COMPRA                          ║\n");
     printf("  ║  4 ➔ EXIBIR LISTA DE PRODUTOS                 ║\n");
     printf("  ║  5 ➔ EXCLUIR PRODUTO                          ║\n");
@@ -35,102 +35,71 @@ void mostrarLista(Produto* lista) {
     printf("PRODUTOS DA LISTA:\n");
     int indice=1;
     while (atual != NULL) {
-        printf("[%d]: %s\tR$%.2lf\tDurabilidade: %d meses\n", indice, atual->nome, atual->preco, atual->durabilidade);
+        printf("[%d]: %s \tR$%.2lf \tDurabilidade: %d meses\n", indice, atual->nome, atual->preco, atual->durabilidade);
         atual = atual->prox;
         indice++;
     }
-    printf("FIM DA LISTA!\n");
+    printf("Fim da lista!\n");
 }
 
 void ConfPerfil(Perfil *p){
-    printf("DIGITE SEU NOME: ");
+    printf("\nDIGITE SEU NOME: ");
     scanf(" %[^\n]",p->nome);
 
     printf("DIGITE SEU SALÁRIO: ");
     scanf("%lf", &p->salario);
 
     do{
-        printf("QUANTOS %% DO SEU SALÁRIO É DEDICADO A MIMOS?");
+        printf("QUAL A %% DO SEU SALÁRIO DEDICADA PARA MIMOS? ");
         scanf("%f",&p->margem);
-    } while (validarMargem(p->margem)==0);
+    }while (validarmargem(p->margem)==0);
 
-    printf("\nPerfil de %s configurado com sucesso!\n", p->nome);
+    printf("Perfil de %s configurado com sucesso!\n", p->nome);
 }
 
 void leProduto(Produto *prod){
     printf("DIGITE O NOME DO PRODUTO: ");
-    //getchar();
     scanf(" %[^\n]",prod->nome); 
     printf("DIGITE O PRECO: ");
     scanf("%lf", &prod->preco);
     printf("QUANTOS MESES ESSE PRODUTO GERALMENTE DURA COM VOCE? "); //considerando que a durabilidade é em meses
     scanf("%d", &prod->durabilidade);
-    CalcularCPW(prod);
-    printf("PRODUTO CADASTRADO COM SUCESSO, AMIGA! \n");
+    CalcularCPW(prod); 
+    printf("PRODUTO CADASTRADO COM SUCESSO, AMIGA!\n");
 }
 
-int validarMargem(float perc){
+int validarmargem(float perc){
     if(perc<=0.0){
-        printf("QUE ISSO AMIGA! Você precisa de pelo menos 1%% para brilhar! Tente novamente\n");
+        printf("\nQUE ISSO AMIGA! Você precisa de pelo menos 1% para brilhar! Tente novamente\n");
         return 0;
     }
 
     if(perc>50.00){
-        printf("AH NÃO AMIGA, AÍ TAMBÉM NÃO!\n");
-        printf("Seu consultor financeiro recomenda abaixar essa margem! Sua econômia vai entrar em colapso!!!!!\n");
+        printf("\nAH NÃO AMIGA, AÍ TAMBÉM NÃO!\n");
+        printf("Seu consultor financeiro recomenda abaixar essa margem! Sua econômia vai entrar em colapso!\n");
         return 0;
     }
     if(perc>20.00){
-    printf("OUSADA!!! Mais que isso seria viver no limite\n");
+    printf("\nOUSADA!!! Mais que isso seria viver no limite\n");
     }
     else{
-        printf("MARGEM APROVADA!\n");
+        printf("MARGEM SALARIAL APROVADA!\n");
     }
     return 1;
 }
 
 void CalcularCPW(Produto * p){
     float cpw=0;
-    cpw = p->preco/p->durabilidade;
+    cpw= p->preco/p->durabilidade;
     p->cpw=cpw;
-
 }
 
-int economia(double valor, double economias, int tempo){
+int economia(double valor, double economias, int tempo){ //DUDA EXPLICA PA NOIS
     if(valor<=0){
         return tempo;
     }
     else{
         return(economia(valor-economias, economias, ++tempo));
-    }
-}
-
-void parcelamento(Perfil * p, Produto * prod){
-    double limite =p->salario *(p->margem/100.00);
-    int parcelas;
-    double valorParcelas;
-
-    printf("\n-------ANÁLISE DE CRÉDITO-------\n");
-    printf("PRODUTO: %s | PREÇO: %.2lf\n", prod->nome,prod->preco);
-    printf("SUA VERBA PARA MIMOS: %.2lf\n", limite);
-
-    if(prod->preco<limite){
-        printf("COMPRA APROVADÍSSIMA!! ARRASOU GAROTA, NEM AFETOU SEU LIMITE DE %.2lf\n", limite);
-    }
-    else{
-        parcelas=(prod->preco/limite)+1;
-        valorParcelas=prod->preco/parcelas;
-        int mesesEconomia=0;
-        printf("SUA ANÁLISE FOI CONCLUÍDA!\n Esse valor ultrapassa seu limite, Temos duas opções para você: \n (1) Sugerimos parcelar em %d de %.2lf \n", parcelas,valorParcelas);
-
-        mesesEconomia=economia(prod->preco, limite, 0);
-        printf("(2) Sugerimos guardar seu limite de %.2lf todo mês durante %d meses e comprar A VISTA!\n", limite, mesesEconomia);
-
-        if(parcelas<=prod->durabilidade){
-            printf("E um bônus? Você termina de pagar enquanto ainda usa o produto\n");
-        }else{
-            ("Compra arriscada!!!! O pagamento dura %d meses mas o produto só dura %d meses.\n REPENSE!\n", parcelas, prod->durabilidade);
-        }
     }
 }
 
@@ -148,7 +117,6 @@ void alocarPerfil(Perfil **p) {
         return;
     }
     else{
-        getchar();
         ConfPerfil(novo);
         *p = novo;
     }
@@ -237,4 +205,57 @@ void limparLista(Produto **prod) {
     }
     
     *prod = NULL;
+}
+
+void analisarCompra(Perfil *p, Produto *prod){
+    double limite = p->salario *(p->margem/100.00);
+    Produto *aux = prod;
+    int parcelas, indice, i;
+    double valorParcelas;
+
+    printf("\n-------ANÁLISE DE CRÉDITO-------\n");
+    mostrarLista(prod);
+    printf("Selecione o item que você quer analisar: ");
+    scanf("%d", &indice);
+    
+    for(i=1; i<indice; i++){
+        aux = aux->prox;
+    }
+    
+    printf("\nPRODUTO: %s | PREÇO: %.2lf\n", aux->nome, aux->preco);
+    printf("SUA VERBA PARA MIMOS: %.2lf\n", limite);
+
+    if(aux->preco<limite){
+        printf("COMPRA APROVADÍSSIMA!! ARRASOU GAROTA, NEM AFETOU SEU LIMITE DE %.2lf\n", limite);
+    }
+    else{
+        parcelas = (aux->preco/limite)+1;
+        valorParcelas = aux->preco/parcelas;
+        int mesesEconomia = 0;
+        printf("SUA ANÁLISE FOI CONCLUÍDA!\nEsse valor ultrapassa seu limite, temos duas opções para você:\n(1) Sugerimos parcelar em %d de %.2lf \n", parcelas,valorParcelas);
+
+        mesesEconomia=economia(aux->preco, limite, 0);
+        printf("(2) Sugerimos guardar seu limite de %.2lf todo mês durante %d meses e comprar A VISTA!\n", limite, mesesEconomia);
+
+        if(parcelas<=aux->durabilidade){
+            printf("E um bônus? Você termina de pagar enquanto ainda usa o produto!\n");
+        }
+        else{
+            ("Compra arriscada!!!! O pagamento dura %d meses mas o produto só dura %d meses.\n REPENSE!\n", parcelas, aux->durabilidade);
+        }
+    }
+}
+
+void mostrarPerfil(Perfil *p){
+    if(p==NULL)
+    {
+        printf("NENHUM PERFIL CADASTRADO!\n");
+        return;
+    }
+    else{
+    printf("NOME: %s\n", p->nome);
+    printf("SALARIO: %.2lf\n", p->salario);
+    printf("PORCENTAGEM DESTINADA AOS MIMOS: %.1f%%\n", p->margem);
+    }
+    
 }
