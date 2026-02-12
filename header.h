@@ -27,13 +27,11 @@ void leProduto(Produto *prod);
 
 void ConfPerfil(Perfil *p);
 
-int validarMargem(float perc);
+int validarmargem(float perc);
 
 void CalcularCPW(Produto *p);
 
 int economia(double valor, double economia, int meses);
-
-void parcelamento(Perfil *p, Produto * prod);
 
 void alocarPerfil(Perfil **p);
 
@@ -44,5 +42,9 @@ int contarItens(Produto *prod);
 void removerItem(Produto **prod);
 
 void limparLista(Produto **prod);
+
+void analisarCompra(Perfil *p, Produto *prod);
+
+void mostrarPerfil(Perfil *p);
 
 #endif
